@@ -13,11 +13,12 @@ namespace BingApiCards
 {
     static class SearchApiClient
     {
-        private const string VisionApiKey = "{{ YOUR KEY HERE }}";
-        private const string SearchApiKey = "{{ YOUR KEY HERE }}";
-
-        private const string VisionBaseUrl = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
-        private const string SearchBaseUrl = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+        // Add your Azure Computer Vision & Bing Search subscription key to your environment variables.
+        private const string VisionApiKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
+        private const string SearchApiKey = Environment.GetEnvironmentVariable("BING_SEARCH_V7_SUBSCRIPTION_KEY");
+        // Add your Azure Computer Vision & Bing Search endpoint to your environment variables.
+        private const string VisionBaseUrl = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        private const string SearchBaseUrl = Environment.GetEnvironmentVariable("BING_SEARCH_V7_ENDPOINT");
 
         public static async Task<string> DoSearch(SoftwareBitmap image)
         {
